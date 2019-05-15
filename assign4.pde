@@ -5,7 +5,7 @@ PImage soldier;
 PImage[][] soils, stones;
 PFont font;
 
-final int GAME_START = 0, GAME_RUN = 1, GAME_OVER = 2, GAME_WIN = 3;
+final int GAME_START = 0, GAME_RUN = 1, GAME_OVER = 2;
 int gameState = 0;
 
 final int GRASS_HEIGHT = 15;
@@ -364,7 +364,7 @@ void draw() {
         if(playerMoveTimer == 0){
           playerRow++;
           playerY = SOIL_SIZE * playerRow;
-          if(playerRow >= SOIL_ROW_COUNT-1) gameState = GAME_WIN;
+          if(playerRow == SOIL_ROW_COUNT-1) playerRow = SOIL_ROW_COUNT-1;
         }else{
           playerY = (1f - float(playerMoveTimer) / playerMoveDuration + playerRow) * SOIL_SIZE;
         }
